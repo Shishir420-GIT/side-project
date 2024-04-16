@@ -3,22 +3,21 @@ import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { zodResolver } from "@hookform/resolvers/zod";
 
-import { Form, FormControl, FormItem, FormField, FormLabel, FormMessage, } from "@/components/ui/form";
-
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Loader } from "@/components/shared/Loader";
 import { useToast } from "@/components/ui/use-toast";
+import { Form, FormControl, FormItem, FormField, FormLabel, FormMessage, } from "@/components/ui/form";
 
 import { SigninValidation } from "@/lib/validation";
 import { useUserContext } from "@/context/AuthContext";
-import { useCreateUserAccount, useSignInAccount } from "@/lib/react-query/queriesAndMutations";
+import { useSignInAccount } from "@/lib/react-query/queriesAndMutations";
 
 
 const SigninForm = () => {
   const { toast } = useToast()
   const navigate = useNavigate()
-  const { checkAuthUser, isloading: isUserLoading } = useUserContext();
+  const { checkAuthUser, isLoading: isUserLoading } = useUserContext();
   
   //const isloading = false
   const form = useForm<z.infer<typeof SigninValidation>>({
@@ -63,14 +62,18 @@ const SigninForm = () => {
         <h2 className="h3-bold md:h2-bold pt-5 sm:pt-12">
           Login to your account
         </h2>
-        <p className="text-light-3 small-medium md:base-regular mt-2">Glad to see you here, please enter your details...</p>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-5 w-full mt-4">
+        <p className="text-light-3 small-medium md:base-regular mt-2">
+          Glad to see you here, please enter your details...
+        </p>
+        <form
+          onSubmit={form.handleSubmit(onSubmit)}
+          className="flex flex-col gap-5 w-full mt-4">
           <FormField
             control={form.control}
             name="email"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Email address</FormLabel>
+                <FormLabel className="shad-form_label">Email address</FormLabel>
                 <FormControl>
                   <Input type="text" className="shad-input" {...field} />
                 </FormControl>
@@ -83,7 +86,7 @@ const SigninForm = () => {
             name="password"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Password</FormLabel>
+                <FormLabel className="shad-form_label">Password</FormLabel>
                 <FormControl>
                   <Input type="password" className="shad-input" {...field} />
                 </FormControl>
@@ -92,7 +95,7 @@ const SigninForm = () => {
             )}
           />
           <Button type="submit" className="shad-button_primary">
-            { isUserLoading ? (
+            { isSigningInUser || isUserLoading ?  (
               <div className="flex-center gap-2">
                <Loader /> Loading...
               </div>
