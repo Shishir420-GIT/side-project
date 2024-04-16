@@ -4,31 +4,31 @@ import {createContext, useContext, useEffect, useState} from 'react'
 import { getCurrentUser } from "@/lib/appwrite/api";
 
 export const INITIAL_USER = {
-    id: '',
-    name: '',
-    username: '',
-    email: '',
-    imageUrl: '',
-    bio: ''
+    id: "",
+    name: "",
+    username: "",
+    email: "",
+    imageUrl: "",
+    bio: "",
 };
 
 const INITIAL_STATE = {
     user: INITIAL_USER,
     isLoading: false,
     isAuthenticated: false,
-    setUser: () => {},
+    setuser: () => {},
     setIsAuthenticated: () => {},
     checkAuthUser: async() => false as boolean,
 }
 
 type IContextType = {
     user: IUser;
-    isloading: boolean;
-    setUser: React.Dispatch<React.SetStateAction<IUser>>;
+    isLoading: boolean;
+    setuser: React.Dispatch<React.SetStateAction<IUser>>;
     isAuthenticated: boolean;
     setIsAuthenticated: React.Dispatch<React.SetStateAction<boolean>>;
     checkAuthUser: () => Promise<boolean>;
-  };
+};
 
 const AuthContext = createContext<IContextType>(INITIAL_STATE);
 
@@ -46,7 +46,7 @@ export default function AuthProvider({ children }: { children: React.ReactNode})
                 setuser({
                     id: currentAccount.$id,
                     name: currentAccount.name,
-                    username: currentAccount.currentAccount,
+                    username: currentAccount.username,
                     email: currentAccount.email,
                     imageUrl: currentAccount.imageUrl,
                     bio: currentAccount.bio
