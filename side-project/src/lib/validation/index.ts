@@ -17,5 +17,5 @@ export const PostValidation = z.object({
     caption: z.string().min(2).max(2048),
     location: z.string().min(6).max(1024),
     tags: z.string(),
-    file: z.custom<File>(),
+    file: z.custom<File[]>(),
 })
