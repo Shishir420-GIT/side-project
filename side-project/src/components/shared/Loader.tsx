@@ -7,7 +7,6 @@ export const Loader = () => {
             width={24}
             height={24}
         />
-
     </div>
   )
 }

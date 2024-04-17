@@ -18,7 +18,7 @@ import { useCreateUserAccount, useSignInAccount } from "@/lib/react-query/querie
 const SignupForm = () => {
   const { toast } = useToast()
   const navigate = useNavigate()
-  const { checkAuthUser, isloading: isUserLoading } = useUserContext();
+  const { checkAuthUser, isLoading: isUserLoading } = useUserContext();
   
   //const isloading = false
   const form = useForm<z.infer<typeof SignupValidation>>({
