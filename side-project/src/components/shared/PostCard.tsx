@@ -67,4 +67,4 @@ const PostCard = ({ post }: PostCardProp) => {
   )
 }
 
-export default PostCard
+export default PostCard;
