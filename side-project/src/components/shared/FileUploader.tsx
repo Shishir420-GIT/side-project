@@ -21,8 +21,8 @@ const FileUploader = ( {fieldChange, mediaUrl}: FileUploaderProps) => {
         onDrop,
         accept: {
             'image/*': ['.png', '.jpeg', '.jpg', '.svg']
-        }
-    })
+        },
+    });
     
     return (
         <div {...getRootProps()} className='flex flex-center flex-col bg-dark-3 rounded-xl cursor-pointer'>

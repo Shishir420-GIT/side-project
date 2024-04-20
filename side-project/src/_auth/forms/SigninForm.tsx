@@ -58,7 +58,7 @@ const SigninForm = () => {
   return (
     <Form {...form}>
       <div className="sm:w-420 flex-center flex-col">
-        <img src="/assets/images/logo.svg" alt="side-project" />
+        <img src="/assets/images/new-logo.png" alt="side-project" />
         <h2 className="h3-bold md:h2-bold pt-5 sm:pt-12">
           Login to your account
         </h2>
@@ -103,7 +103,7 @@ const SigninForm = () => {
           </Button>
           <p className="text-small-regular text-light-2 text-center mt-2">
             Don't have an account?
-            <Link to="/sign-up" className="text-primary-500 text-small-semibold ml-1">
+            <Link to="/sign-up" className=" text-yellow-900 hover:text-yellow-600 text-small-semibold ml-1">
               Sign up
             </Link>
           </p>
