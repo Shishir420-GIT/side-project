@@ -1,15 +1,23 @@
-import { Loader } from "@/components/shared/Loader"
-import { Button } from "@/components/ui/button"
-import { useUserContext } from "@/context/AuthContext"
-import { useGetPostById } from "@/lib/react-query/queriesAndMutations"
-import { getTimeAgo } from "@/lib/utils"
 import { Link, useParams } from "react-router-dom"
+import { useUserContext } from "@/context/AuthContext"
+
+import { Button } from "@/components/ui/button"
+import { Loader } from "@/components/shared/Loader"
+import { useToast } from "@/components/ui/use-toast"
+import PostStats from "@/components/shared/PostStats"
+
+import { getTimeAgo } from "@/lib/utils"
+import { useGetPostById } from "@/lib/react-query/queriesAndMutations"
+
 
 const PostDetails = () => {
   const { id } = useParams()
   const { data: post, isPending } = useGetPostById(id || '')
   const { user } = useUserContext()
-  const handleDelete = () => {}
+  const { toast } = useToast()
+  const handleDelete = () => {
+    toast({title: "Functionality building in progress!!"})
+  }
   return (
     <div className="post_details-container">
       {isPending ? <Loader/> : (
@@ -42,7 +50,7 @@ const PostDetails = () => {
                     </div>
                 </div>
               </Link>
-              <div className="flex center">
+              <div className="flex justify-center">
                 <Link to={`/update-post/${post?.$id}`}
                 className={`${user.id !== post?.creator.$id && 'hidden'}`}>
                   <img
@@ -57,7 +65,7 @@ const PostDetails = () => {
                   className={`ghost_details-delete_btn
                   ${user.id !== post?.creator.$id && 'hidden'}`}>
                   <img
-                    src="/assets/icons/delete.svg"
+                    src="/assets/icons/delete.png"
                     alt="delete"
                     width={24}
                     height={24} />
@@ -74,6 +82,9 @@ const PostDetails = () => {
                         </li>
                     ))}
                 </ul>
+            </div>
+            <div className="w-full">
+              <PostStats post={post} userId={user.id}/>
             </div>
           </div>
         </div>
