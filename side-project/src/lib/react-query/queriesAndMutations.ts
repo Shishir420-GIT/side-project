@@ -2,7 +2,6 @@ import { QUERY_KEYS } from "@/lib/react-query/queryKeys";
 import { INewPost, INewUser, IUpdatePost } from "@/types";
 import { useMutation, useQuery, useQueryClient,} from "@tanstack/react-query";
 import { createUserAccount, signInAccount, signOutAccount, createPost, getRecentPosts, likePost, deleteSavedPost, savePost, getCurrentUser, getPostById, updatePost, deletePost,} from "@/lib/appwrite/api";
-import { appwriteConfig, databases } from "../appwrite/config";
 
 export const useCreateUserAccount = () => {
     return useMutation({
