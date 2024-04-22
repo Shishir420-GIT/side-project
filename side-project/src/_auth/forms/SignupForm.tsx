@@ -74,11 +74,12 @@ const SignupForm = () => {
   return (
     <Form {...form}>
       <div className="sm:w-420 flex-center flex-col">
-        <img src="/assets/images/new-logo.png" alt="side-project" />
+        <img src="/assets/images/new-logo.png" alt="side-project"
+        className="mt-20 pt-12" />
         <h2 className="h3-bold md:h2-bold pt-5 sm:pt-12">
           Create a new account
         </h2>
-        <p className="text-light-3 small-medium md:base-regular mt-2">To use side-project enter your details</p>
+        <p className="text-light-3 small-medium md:base-regular mt-2">To Enter the cafe, please register.</p>
         <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-5 w-full mt-4">
         <FormField
             control={form.control}

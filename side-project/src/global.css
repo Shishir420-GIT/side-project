@@ -190,6 +190,10 @@
   .bottom-bar {
     @apply z-50 flex-between w-full sticky bottom-0 rounded-t-[20px] bg-dark-2 px-5 py-4 md:hidden;
   }
+  .bottom-bar-link {
+    @apply rounded-lg base-medium hover:bg-yellow-700 transition;
+  }
+
 
   /* File uploader */
   .file_uploader-img {
@@ -223,7 +227,7 @@
   }
 
   .leftsidebar-link {
-    @apply rounded-lg base-medium hover:bg-primary-500 transition;
+    @apply rounded-lg base-medium hover:bg-yellow-700 transition;
   }
 
   /* Post Card */

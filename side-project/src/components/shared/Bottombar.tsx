@@ -7,20 +7,20 @@ const Bottombar = () => {
   return (
     <section className='bottom-bar'>
           {bottombarLinks.map((link: INavLink) => {
-            const isActive = pathname === link.route;
-
+            const isActive = pathname === link.route
             return (
                 <NavLink
                   to={link.route}
-                  key={link.label} className={`${
-                  isActive && "bg-primary-500 rounded-[10px]" }
+                  key={link.label} className={`bottom-bar-link ${
+                  isActive && "bg-yellow-800 rounded-[10px]" }
                   flex-center flex-col gap-1 p-2 transition`}>
                   <img
                     src={link.imgURL}
                     alt={link.label}
                     width={16}
                     height={16}
-                    className={`${isActive && "invert-white"
+                    className={`group-hover:invert-white  ${
+                      isActive && "invert-white"
                     }`}
                   />
                   <p className="tiny-midium text-light-2">{link.label}</p>
