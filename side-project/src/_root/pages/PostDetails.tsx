@@ -50,7 +50,7 @@ const PostDetails = () => {
                     </div>
                 </div>
               </Link>
-              <div className="flex justify-center">
+              <div className="flex-center gap-4">
                 <Link to={`/update-post/${post?.$id}`}
                 className={`${user.id !== post?.creator.$id && 'hidden'}`}>
                   <img
@@ -65,7 +65,7 @@ const PostDetails = () => {
                   className={`ghost_details-delete_btn
                   ${user.id !== post?.creator.$id && 'hidden'}`}>
                   <img
-                    src="/assets/icons/delete.png"
+                    src="/assets/icons/delete.svg"
                     alt="delete"
                     width={24}
                     height={24} />
